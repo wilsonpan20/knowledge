@@ -78,12 +78,20 @@ module.exports = app=>{
 
         return categoriesWithPath
     }
+    const limit = 10
+    const get = async (req, res) => {
+        const page = req.query.page || 1
 
-    const get = (req, res) => {
+        const result = await app.db('categories').count('id').first()
+        const count = parseInt(result.count)
         app.db('categories')
-            .then(categories => res.json(withPath(categories)))
+            .select('id','name','parentId')
+            .limit(limit).offset(page * limit - limit)
+            .then(categories => res.json({data: withPath(categories),count,limit}))
             .catch(err => res.status(500).send(err))
     }
+
+  
 
     const getById = (req, res) => {
         app.db('categories')
