@@ -48,5 +48,5 @@ app.route('/categories/:id/articles')
 
 app.route('/stats')
 .all(app.config.passport.authenticate())
-.get(app.api.stats.get)
+.get(app.api.stat.get)
 }
