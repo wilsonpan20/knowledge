@@ -1,29 +1,34 @@
 <template>
     <header class="header">
-        <a class="toggle" @click="toggleMenu" v-if="!hideToggle">
+        <a class="toggle" @click="toggleMenu" v-if="!hideUserDropdown">
             <i class="fa fa-lg" :class="icon"></i>
         </a>
        <h1 class="title">
         {{ title }}
        </h1>
+       <user-dropdown v-if="!hideD"/>
     </header>
 </template>
 
 <script>
+import UserDropdown from './UserDropdown.vue';
 export default {
 name:'Header',
+components:{UserDropdown},
 props:{
     title:String,
     hideToggle:Boolean,
+    hideUserDropdown:Boolean,
 },
 computed:{
     icon(){
-        return "fa-angle-left"
+        return this.$store.state.isMenuVisible ?"fa-angle-left"
+        : "fa-angle-down"
     }
 },
 methods:{
     toggleMenu(){
-       console.log('ola')
+       this.$store.commit('toggleMenu')
     }
 }
 }
