@@ -3,21 +3,28 @@
         <div class="user-button">
             <span class="d-none d-sm-block">{{ user.name }}</span>
             <div class="user-dropdown-img">
-                <Gravatar :email="user.email" alt="User"/>
+                <Gravatar :email="user.email" alt="User" />
             </div>
 
-     <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-down"></i>
         </div>
-  <div class="user-dropdown-content"></div>
+        <div class="user-dropdown-content">
+            <router-link to="/admin">
+                <i class="fa fa-cogs">
+                    Administração
+                </i>
+            </router-link>
+            <a href=""><i class="fa fa-sign-out">Sair</i></a>
+        </div>
     </div>
 </template>
 
 <script>
-import {mapState}  from 'vuex'
+import { mapState } from 'vuex'
 import Gravatar from 'vue-gravatar'
 export default {
-    name:'UserDropdown',
-    components:{Gravatar},
+    name: 'UserDropdown',
+    components: { Gravatar },
     computed: mapState(['user'])
 
 
@@ -25,26 +32,67 @@ export default {
 </script>
 
 <style>
-.user-dropdown{
-    height:100% ;
+.user-dropdown {
+    position: relative;
+    height: 100%;
 }
-.user-button{
-    display:flex;
+
+.user-button {
+    display: flex;
     align-items: center;
-    color:#fff;
+    color: #fff;
     font-weight: 100;
     height: 100%;
-    padding: 0px 20px; 
+    padding: 0px 20px;
 }
-.user-dropdown :hover{
-    background-color: rgba(0,0,0,0.2)
-}
-.user-dropdown-img{
- margin: 0px 10px;
-}
-.user-dropdown-img > img{
-    max-height: 37px;
-    border-radius:5px; 
 
+.user-dropdown:hover {
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+.user-dropdown-img {
+    margin: 0px 10px;
+}
+
+.user-dropdown-img>img {
+    max-height: 37px;
+    border-radius: 5px;
+
+}
+
+.user-dropdown-content {
+    position: absolute;
+    right: 0px;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.user-dropdown-content a {
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+
+}
+
+.user-dropdown-content a:hover {
+    text-decoration: none;
+    color: #000;
+    background-color: #EDEDED;
 }
 </style>

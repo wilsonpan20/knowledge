@@ -6,20 +6,20 @@
 
 <script>
 export default {
-    name:'Footer'
+    name: 'Footer'
 
 }
 </script>
 
 <style>
-.footer{
+.footer {
     grid-area: footer;
     background-color: #DDD;
-    color:#333;
+    color: #333;
 
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right:10px; 
+    padding-right: 10px;
 }
 </style>
