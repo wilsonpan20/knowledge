@@ -40,7 +40,7 @@ export default {
     methods:{
         getStat(){
             axios.get(`${baseApiUrl}/stats`)
-            .then(response => this.stat = response.data)
+            .then(res => this.stat = res.data)
         }
     },
     mounted(){
