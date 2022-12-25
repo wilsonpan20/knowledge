@@ -52,6 +52,7 @@
                 </b-button>
             </template>
         </b-table>
+        <b-pagination size="md" v-model="page" :total-rows="count" :per-page="limit" />
     </div>
 </template>
 
@@ -82,9 +83,11 @@ export default {
     },
     methods: {
         loadUsers() {
-            const url = `${baseApiUrl}/users`
+            const url = `${baseApiUrl}/users?page=${this.page}`
             axios.get(url).then(res => {
                 this.users = res.data.data
+                this.count = res.data.count
+                this.limit = res.data.limit
             })
         },
         reset() {
@@ -115,6 +118,11 @@ export default {
             this.mode = mode
             this.user = { ...user }
 
+        }
+    },
+    watch: {
+        page() {
+            this.loadUsers()
         }
     },
     mounted() {
