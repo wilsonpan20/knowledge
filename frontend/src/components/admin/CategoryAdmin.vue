@@ -10,17 +10,11 @@
                     </b-form-group>
                 </b-col>
             </b-row>
-            <b-row v-if=" mode === 'save'">
+            <b-row>
                 <b-col xs="12" >
                     <b-form-group label="Categoria Pai:" label-for="category-parentId">
-                        <b-form-select id="category-parentId" :options="categories" v-model="category.parentId"/>
-                    </b-form-group>
-                </b-col>
-            </b-row>
-            <b-row v-else>
-                <b-col xs="12" >
-                    <b-form-group label="Categoria Pai:" label-for="category-parentId">
-                    <b-form-input id="category-parentId" type="text" v-model="category.path" readonly/>
+                        <b-form-select   v-if=" mode === 'save'" id="category-parentId" :options="categories" v-model="category.parentId"/>
+                        <b-form-input v-else id="category-parentId" type="text" v-model="category.path" readonly/>
                     </b-form-group>
                 </b-col>
             </b-row>
