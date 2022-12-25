@@ -49,7 +49,7 @@ module.exports = app => {
             .catch(err=> res.status(500).send(err))
         }
     }
-    const limit = 10
+    const limit = 9
 
     const get = async (req,res)=>{
         const page = req.query.page || 1
