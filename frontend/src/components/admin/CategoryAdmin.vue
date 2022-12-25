@@ -48,7 +48,6 @@ export default {
     data() {
         return {
             mode: 'save',
-            loading:true,
             category: {},
             categories: [],
             fields: [
@@ -93,7 +92,6 @@ export default {
                     this.reset()
                 })
                 .catch(showError)
-                .finally(()=> this.loading = false)
         },
         loadCategory(category, mode = 'save') {
             this.mode = mode

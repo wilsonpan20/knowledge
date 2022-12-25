@@ -65,6 +65,9 @@ export default {
             mode: 'save',
             user: {},
             users: [],
+            page: 1,
+            limit: 0,
+            count: 0,
             fields: [
                 { key: 'id', label: 'Código', sortable: true },
                 { key: 'name', label: 'Nome', sortable: true },
@@ -81,7 +84,7 @@ export default {
         loadUsers() {
             const url = `${baseApiUrl}/users`
             axios.get(url).then(res => {
-                this.users = res.data
+                this.users = res.data.data
             })
         },
         reset() {
