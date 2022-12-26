@@ -40,6 +40,7 @@ module.exports = app => {
             .update(user)
             .where({id:user.id})
             .whereNull('deletedAt')
+            .orderBy('id','desc')
             .then(_=>res.status(204).send())
             .catch(err => res.status(500).send(err))
         }else{
