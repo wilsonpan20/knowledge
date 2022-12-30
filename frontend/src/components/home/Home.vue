@@ -28,7 +28,7 @@
 import PageTitle from '../template/PageTitle.vue';
 import Stat from './Stat.vue';
 import axios from 'axios';
-import {baseApiUrl} from '@/config/global'
+import {baseApiUrl} from '@/global'
 export default {
     name:'Home',
     components:{PageTitle,Stat},

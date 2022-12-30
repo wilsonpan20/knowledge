@@ -1,0 +1,41 @@
+<template>
+    <div article-by-category>
+     <page-title icon="fa fa-folder-o" :main="category.name"/>
+    </div>
+
+</template>
+
+<script>
+import {baseApiUrl} from '@/global'
+import axios  from 'axios'
+import PageTitle from '../template/PageTitle.vue';
+
+export default {
+    name:'ArticlesByCategory',
+    components:{PageTitle},
+    data(){
+        return {
+        category:{},
+        page:1,
+        loadMore:true,
+
+        }
+    },
+    methods:{
+        getCategory(){
+            const url = `${baseApiUrl}/categories/${this.category.id}`
+            axios.get(url).then(res => this.category = res.data)
+        }
+    },
+    mounted() {
+        this.category.id = this.$route.params.id
+        this.getCategory()
+     
+    },
+    created() {},
+}
+</script>
+
+<style>
+
+</style>

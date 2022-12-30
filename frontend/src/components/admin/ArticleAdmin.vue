@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { baseApiUrl, showError } from '@/config/global'
+import { baseApiUrl, showError } from '@/global'
 import { VueEditor } from 'vue2-editor'
 import axios from 'axios'
 export default {
