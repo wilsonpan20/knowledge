@@ -15,8 +15,12 @@ export default {
 </script>
 
 <style>
+.page-title h1 i{
+    margin-right: 10px;
+}
 .page-title h1{
     margin:0px;
+    
 
 }
 .page-title h2{
