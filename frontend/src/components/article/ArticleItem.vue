@@ -43,6 +43,10 @@ export default {
         text-decoration: none;
         color: #000;
     }
+    .article-item a:hover {
+       color: #000;
+       text-decoration: none
+    }
 
     .article-item-info h2 {
         font-size: 1.7rem;
