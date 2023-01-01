@@ -1,4 +1,6 @@
 import Vue from 'vue'
+
+export const userKey = '__knowledge_user'
 export const baseApiUrl = 'http://192.168.0.2:3005'
 
 
@@ -11,3 +13,5 @@ export function showError(e){
     Vue.toasted.global.defaultError()
     }
 }
+
+export default{baseApiUrl,showError,userKey}
