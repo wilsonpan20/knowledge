@@ -5,6 +5,7 @@ import AdminPages from '@/components/admin/AdminPages'
 import ArticlesByCategory from '@/components/article/ArticlesByCategory'
 import ArticleById from '@/components/article/ArticleById'
 import Auth from '@/components/auth/Auth'
+//import {userKey} from '@/global'
  
 Vue.use(VueRouter)
 
@@ -16,7 +17,8 @@ const routes = [{
 {
  name:AdminPages,
  path:'/admin',
- component:AdminPages   
+ component:AdminPages,   
+ meta:{requiresAdmin:true}
 },
 {
     name: 'articlesByCategory',
@@ -36,8 +38,13 @@ const routes = [{
 
 ]
 
-export default  new VueRouter({
+const router = new VueRouter({
     mode:'history',
     routes
 })
+
+/*router.beforeEach((to,from, next )=>{
+
+})*/
+export default router
 

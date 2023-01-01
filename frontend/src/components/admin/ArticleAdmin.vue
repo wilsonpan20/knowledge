@@ -85,7 +85,7 @@ export default {
             articles: [],
             categories:[],
             users: [],
-            pages: 1,
+            page: 1,
             limit: 0,
             count: 0,
             fields: [
@@ -156,7 +156,6 @@ export default {
         page(){
             this.loadArticles()
         }
-
     },
     mounted() {
         this.loadUsers()
