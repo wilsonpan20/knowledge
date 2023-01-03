@@ -3,9 +3,11 @@ import 'font-awesome/css/font-awesome.css'
 import router from './config/router'
 import store from './config/store'
 import LiquorTree from './config/LiquorTree'
+import './config/axios'
 
 import App from './App'
 import './config/msgs'
+import './config/mq'
 
 import './config/bootstrap'
 
